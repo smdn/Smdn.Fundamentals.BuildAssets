@@ -1,0 +1,128 @@
+<!--
+SPDX-FileCopyrightText: 2021 smdn <smdn@smdn.jp>
+SPDX-License-Identifier: MIT
+-->
+<Project>
+  <!-- *_OR_GREATER are defined in AddImplicitDefineConstants of Microsoft.NET.Sdk.BeforeCommon.targets -->
+  <Target
+    Name="AddNETSdkApiDefineConstants"
+    DependsOnTargets="AddImplicitDefineConstants"
+    BeforeTargets="CoreCompile"
+  >
+    <!-- NET46_OR_GREATER || NETSTANDARD1_3_OR_GREATER || NETCOREAPP1_0_OR_GREATER || NET5_0_OR_GREATER -->
+    <ItemGroup Condition="
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNET46_OR_GREATER\b')) Or
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNETSTANDARD1_3_OR_GREATER\b')) Or
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNETCOREAPP1_0_OR_GREATER\b')) Or
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNET5_0_OR_GREATER\b'))
+    ">
+      <_NETSdkAvailableApiName Include="System.Array.Empty"/>
+      <_NETSdkAvailableApiName Include="System.FormattableString"/>
+      <_NETSdkAvailableApiName Include="System.Threading.Tasks.Task.CompletedTask"/>
+      <_NETSdkAvailableApiName Include="System.Threading.Tasks.Task.FromCanceled"/>
+    </ItemGroup>
+
+    <!-- NETFRAMEWORK || NETSTANDARD2_0_OR_GREATER || NETCOREAPP2_0_OR_GREATER || NET5_0_OR_GREATER -->
+    <ItemGroup Condition="
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNETFRAMEWORK\b')) Or
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNETSTANDARD2_0_OR_GREATER\b')) Or
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNETCOREAPP2_0_OR_GREATER\b')) Or
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNET5_0_OR_GREATER\b'))
+    ">
+      <_NETSdkAvailableApiName Include="System.Array.ConvertAll"/>
+      <_NETSdkAvailableApiName Include="System.Converter"/>
+      <_NETSdkAvailableApiName Include="System.Exception.ctor(SerializationInfo)"/>
+      <_NETSdkAvailableApiName Include="System.ICloneable"/>
+      <_NETSdkAvailableApiName Include="System.Math.DivRem"/>
+      <_NETSdkAvailableApiName Include="System.Diagnostics.Process"/>
+      <_NETSdkAvailableApiName Include="System.IO.Stream.Close"/>
+      <_NETSdkAvailableApiName Include="System.Net.NetworkInformation.PhysicalAddress"/>
+      <_NETSdkAvailableApiName Include="System.Security.Cryptography.HashAlgorithm.Clear"/>
+    </ItemGroup>
+
+    <!-- NET472_OR_GREATER || NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_0_OR_GREATER || NET5_0_OR_GREATER -->
+    <ItemGroup Condition="
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNET472_OR_GREATER\b')) Or
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNETSTANDARD2_1_OR_GREATER\b')) Or
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNETCOREAPP2_0_OR_GREATER\b')) Or
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNET5_0_OR_GREATER\b'))
+    ">
+      <_NETSdkAvailableApiName Include="System.Security.Cryptography.CryptoStream.ctor(leaveOpen)"/>
+    </ItemGroup>
+
+    <!-- NETFRAMEWORK -->
+    <ItemGroup Condition="
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNETFRAMEWORK\b'))
+    ">
+      <_NETSdkAvailableApiName Include="System.Text.Encoding.Default_ANSI"/>
+    </ItemGroup>
+
+    <!-- NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_0_OR_GREATER || NET5_0_OR_GREATER -->
+    <ItemGroup Condition="
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNETSTANDARD2_1_OR_GREATER\b')) Or
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNETCOREAPP2_0_OR_GREATER\b')) Or
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNET5_0_OR_GREATER\b'))
+    ">
+      <_NETSdkAvailableApiName Include="System.ArraySegment.Slice"/>
+      <_NETSdkAvailableApiName Include="System.String.EndsWith(char)"/>
+      <_NETSdkAvailableApiName Include="System.String.Split(char)"/>
+      <_NETSdkAvailableApiName Include="System.String.StartsWith(char)"/>
+      <_NETSdkAvailableApiName Include="System.Collections.Generic.KeyValuePair.Create"/>
+      <_NETSdkAvailableApiName Include="System.IO.Path.GetRelativePath"/>
+    </ItemGroup>
+
+    <!-- NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER || NET5_0_OR_GREATER -->
+    <ItemGroup Condition="
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNETSTANDARD2_1_OR_GREATER\b')) Or
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNETCOREAPP2_1_OR_GREATER\b')) Or
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNET5_0_OR_GREATER\b'))
+    ">
+      <_NETSdkAvailableApiName Include="System.INumber.Parse(ReadOnlySpan_Of_Char)"/>
+      <_NETSdkAvailableApiName Include="System.INumber.TryParse(ReadOnlySpan_Of_Char)"/>
+      <_NETSdkAvailableApiName Include="System.String.ctor(ReadOnlySpan_Of_Char)"/>
+      <_NETSdkAvailableApiName Include="System.String.Create"/>
+      <_NETSdkAvailableApiName Include="System.String.Contains(char)"/>
+      <_NETSdkAvailableApiName Include="System.IO.Stream.ReadAsync(Memory_Of_Byte)"/>
+      <_NETSdkAvailableApiName Include="System.IO.Stream.WriteAsync(ReadOnlyMemory_Of_Byte)"/>
+      <_NETSdkAvailableApiName Include="System.Text.StringBuilder.Append(ReadOnlySpan_Of_Char)"/>
+      <_NETSdkAvailableApiName Include="System.Threading.Tasks.ValueTask"/>
+    </ItemGroup>
+
+    <!-- NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_0_OR_GREATER || NET5_0_OR_GREATER -->
+    <ItemGroup Condition="
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNETSTANDARD2_1_OR_GREATER\b')) Or
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNETCOREAPP3_0_OR_GREATER\b')) Or
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNET5_0_OR_GREATER\b'))
+    ">
+      <_NETSdkAvailableApiName Include="System.Index"/>
+      <_NETSdkAvailableApiName Include="System.Range"/>
+      <_NETSdkAvailableApiName Include="System.Buffers.SequenceReader"/>
+    </ItemGroup>
+
+    <!-- NETCOREAPP3_0_OR_GREATER || NET5_0_OR_GREATER -->
+    <ItemGroup Condition="
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNETCOREAPP3_0_OR_GREATER\b')) Or
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNET5_0_OR_GREATER\b'))
+    ">
+      <_NETSdkAvailableApiName Include="System.Text.StringBuilder.Append(ReadOnlyMemory_Of_Char)"/>
+    </ItemGroup>
+
+    <!-- NET5_0_OR_GREATER -->
+    <ItemGroup Condition="
+      $([System.Text.RegularExpressions.Regex]::IsMatch('$(DefineConstants)', '\bNET5_0_OR_GREATER\b'))
+    ">
+      <_NETSdkAvailableApiName Include="System.Buffers.SequenceReader.UnreadSequence"/>
+      <_NETSdkAvailableApiName Include="System.Threading.Tasks.ValueTask.FromCanceled"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <_NETSdkAvailableApiName Update="@(_NETSdkAvailableApiName)">
+        <Constant>$([System.String]::new('%(Identity)').ToUpperInvariant().Replace('.', '_').Replace('(', '_').Replace(')', ''))</Constant>
+      </_NETSdkAvailableApiName>
+    </ItemGroup>
+
+    <PropertyGroup Condition="0 &lt; @(_NETSdkAvailableApiName->Count())">
+      <DefineConstants>$(DefineConstants);@(_NETSdkAvailableApiName->Metadata('Constant'), ';')</DefineConstants>
+    </PropertyGroup>
+  </Target>
+</Project>
