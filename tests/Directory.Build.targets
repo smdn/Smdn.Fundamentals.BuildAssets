@@ -10,8 +10,8 @@ SPDX-License-Identifier: MIT
     <!-- NUnit >= 5.0.0 requires System.ValueTuple >= 4.6.2 -->
     <PackageReference Update="System.ValueTuple" Version="4.6.2" />
     <!-- <PackageReference Update="NUnit.Analyzers" Version="4.15.0"/> -->
-    <PackageReference Update="Smdn.Test.NUnit.Constraints" Version="4.2.0" />
-    <PackageReference Update="Smdn.Test.NUnit.Utils" Version="5.0.0" />
+    <!-- <PackageReference Update="Smdn.Test.NUnit.Constraints" Version="4.2.0" /> -->
+    <!-- <PackageReference Update="Smdn.Test.NUnit.Utils" Version="5.0.0" /> -->
   </ItemGroup>
 
   <Import Project="$(MSBuildThisFileDirectory)..\src\ProjectAssets.Library.targets" />
