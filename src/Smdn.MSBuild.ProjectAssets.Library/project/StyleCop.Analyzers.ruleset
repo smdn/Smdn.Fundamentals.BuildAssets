@@ -1,11 +1,11 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <!--
 SPDX-FileCopyrightText: 2022 smdn <smdn@smdn.jp>
 SPDX-License-Identifier: MIT
 -->
 <!-- ref: https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/DOCUMENTATION.md -->
 <!-- based on: https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/StyleCop.Analyzers/StyleCop.Analyzers.CodeFixes/rulesets/StyleCopAnalyzersDefault.ruleset -->
-<RuleSet Name="StyleCop.Analyzers rules for Smdn.Fundamentals" ToolsVersion="14.0">
+<RuleSet Name="StyleCop.Analyzers rules for Smdn.MSBuild.ProjectAssets.Library" ToolsVersion="14.0">
   <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers.SpecialRules">
     <Rule Id="SA0001"  Action="None" />             <!-- XML comment analysis disabled -->
     <Rule Id="SA0002"  Action="Warning" />          <!-- Invalid settings file -->

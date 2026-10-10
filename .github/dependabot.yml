@@ -9,8 +9,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-      day: "wednesday"
-      time: "03:12"
+      day: "tuesday"
+      time: "03:08"
       timezone: "Asia/Tokyo"
     assignees:
       - smdn
