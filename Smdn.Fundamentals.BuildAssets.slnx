@@ -1,0 +1,15 @@
+﻿<!--
+SPDX-FileCopyrightText: 2026 smdn <smdn@smdn.jp>
+SPDX-License-Identifier: MIT
+-->
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Smdn.MSBuild.DefineConstants.NETSdkApi/Smdn.MSBuild.DefineConstants.NETSdkApi.csproj" />
+    <Project Path="src/Smdn.MSBuild.ProjectAssets.Common/Smdn.MSBuild.ProjectAssets.Common.csproj" />
+    <Project Path="src/Smdn.MSBuild.ProjectAssets.Library/Smdn.MSBuild.ProjectAssets.Library.csproj" />
+  </Folder>
+  <Folder Name="/tests/" />
+  <Folder Name="/tests/Smdn.MSBuild.DefineConstants.NETSdkApi/">
+    <Project Path="tests/Smdn.MSBuild.DefineConstants.NETSdkApi/Smdn.MSBuild.DefineConstants.NETSdkApi.BuildTest.csproj" />
+  </Folder>
+</Solution>
