@@ -1,6 +1,7 @@
 [![GitHub license](https://img.shields.io/github/license/smdn/Smdn.Fundamentals.BuildAssets)](https://github.com/smdn/Smdn.Fundamentals.BuildAssets/blob/main/LICENSE.txt)
 [![tests/main](https://img.shields.io/github/actions/workflow/status/smdn/Smdn.Fundamentals.BuildAssets/test.yml?branch=main&label=tests%2Fmain)](https://github.com/smdn/Smdn.Fundamentals.BuildAssets/actions/workflows/test.yml)
 [![CodeQL](https://github.com/smdn/Smdn.Fundamentals.BuildAssets/actions/workflows/codeql-analysis.yml/badge.svg?branch=main)](https://github.com/smdn/Smdn.Fundamentals.BuildAssets/actions/workflows/codeql-analysis.yml)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/smdn/Smdn.Fundamentals.BuildAssets/badge)](https://scorecard.dev/viewer/?uri=github.com/smdn/Smdn.Fundamentals.BuildAssets)
 
 # Smdn.Fundamentals.BuildAssets
 
