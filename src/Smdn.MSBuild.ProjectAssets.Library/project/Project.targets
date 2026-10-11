@@ -30,7 +30,5 @@ SPDX-License-Identifier: MIT
       Condition=" '$(EnableNUnitRunner)' == 'true' "
       Project="$(MSBuildThisFileDirectory)MicrosoftTestingExtensionsGitHubActionsReport.targets"
     />
-    <!-- extension points for VSTest target -->
-    <Import Project="$(MSBuildThisFileDirectory)VSTestExtensionPoints.targets" Condition=" '$(IsVSTestTargetOverridden)' == '' " />
   </ImportGroup>
 </Project>
