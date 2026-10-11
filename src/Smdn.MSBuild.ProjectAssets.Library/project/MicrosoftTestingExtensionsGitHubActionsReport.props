@@ -1,0 +1,12 @@
+﻿<!--
+SPDX-FileCopyrightText: 2026 smdn <smdn@smdn.jp>
+SPDX-License-Identifier: MIT
+-->
+<Project>
+  <PropertyGroup Label="Microsoft.Testing.Extensions.GitHubActionsReport">
+    <!-- by default, enables Microsoft.Testing.Extensions.GitHubActionsReport only on GitHub Actions -->
+    <EnableGitHubActionsTestReport
+      Condition=" '$(EnableGitHubActionsTestReport)' == '' and '$(GITHUB_ACTIONS)' == 'true' "
+    >true</EnableGitHubActionsTestReport>
+  </PropertyGroup>
+</Project>
