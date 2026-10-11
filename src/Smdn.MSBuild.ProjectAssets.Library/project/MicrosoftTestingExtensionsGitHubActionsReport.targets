@@ -1,0 +1,58 @@
+﻿<!--
+SPDX-FileCopyrightText: 2025 smdn <smdn@smdn.jp>
+SPDX-License-Identifier: MIT
+-->
+<Project>
+  <ItemGroup Condition=" '$(EnableGitHubActionsTestReport)' == 'true' ">
+    <PackageReference
+      Include="Microsoft.Testing.Extensions.GitHubActionsReport"
+      Version="2.5.1"
+    />
+  </ItemGroup>
+
+  <!-- Default configurations for Microsoft.Testing.Extensions.GitHubActionsReport, as of v2.5.1 -->
+  <PropertyGroup
+    Condition=" '$(EnableGitHubActionsTestReport)' == 'true' "
+    Label="Default configurations for Microsoft.Testing.Extensions.GitHubActionsReport"
+  >
+    <!-- Enable generating test report with Microsoft.Testing.Extensions.GitHubActionsReport -->
+    <TestingPlatformCommandLineArguments
+      Condition="!($(TestingPlatformCommandLineArguments.Contains(' --report-gh')) or $(TestingPlatformCommandLineArguments.Contains('--report-gh ')))"
+    >$(TestingPlatformCommandLineArguments) --report-gh</TestingPlatformCommandLineArguments>
+
+    <!-- Enable GitHub Actions annotations for failed and skipped tests. -->
+    <TestingPlatformCommandLineArguments
+      Condition="!($(TestingPlatformCommandLineArguments.Contains(' --report-gh-annotations=')) or $(TestingPlatformCommandLineArguments.Contains('--report-gh-annotations ')))"
+    >$(TestingPlatformCommandLineArguments) --report-gh-annotations=true</TestingPlatformCommandLineArguments>
+
+    <!-- Enable expanding each failed test in the job summary into a collapsible section. -->
+    <TestingPlatformCommandLineArguments
+      Condition="!($(TestingPlatformCommandLineArguments.Contains(' --report-gh-failure-details=')) or $(TestingPlatformCommandLineArguments.Contains('--report-gh-failure-details ')))"
+    >$(TestingPlatformCommandLineArguments) --report-gh-failure-details=true</TestingPlatformCommandLineArguments>
+
+    <!-- Enable per-assembly log groups. -->
+    <TestingPlatformCommandLineArguments
+      Condition="!($(TestingPlatformCommandLineArguments.Contains(' --report-gh-groups=')) or $(TestingPlatformCommandLineArguments.Contains('--report-gh-groups ')))"
+    >$(TestingPlatformCommandLineArguments) --report-gh-groups=true</TestingPlatformCommandLineArguments>
+
+    <!-- Enable writing a markdown job summary to the GITHUB_STEP_SUMMARY file. -->
+    <TestingPlatformCommandLineArguments
+      Condition="!($(TestingPlatformCommandLineArguments.Contains(' --report-gh-step-summary=')) or $(TestingPlatformCommandLineArguments.Contains('--report-gh-step-summary ')))"
+    >$(TestingPlatformCommandLineArguments) --report-gh-step-summary=true</TestingPlatformCommandLineArguments>
+
+    <!-- Include the 'all' content in the GitHub Actions job summary. -->
+    <TestingPlatformCommandLineArguments
+      Condition="!($(TestingPlatformCommandLineArguments.Contains(' --report-gh-step-summary-sections=')) or $(TestingPlatformCommandLineArguments.Contains('--report-gh-step-summary-sections ')))"
+    >$(TestingPlatformCommandLineArguments) --report-gh-step-summary-sections=all</TestingPlatformCommandLineArguments>
+
+    <!-- Enable GitHub Actions slow-test notices. -->
+    <TestingPlatformCommandLineArguments
+      Condition="!($(TestingPlatformCommandLineArguments.Contains(' --report-gh-slow-test-notices=')) or $(TestingPlatformCommandLineArguments.Contains('--report-gh-slow-test-notices ')))"
+    >$(TestingPlatformCommandLineArguments) --report-gh-slow-test-notices=true</TestingPlatformCommandLineArguments>
+
+    <!-- The duration a test may run before a GitHub Actions slow-test notice is emitted. -->
+    <TestingPlatformCommandLineArguments
+      Condition="!($(TestingPlatformCommandLineArguments.Contains(' --report-gh-slow-test-threshold=')) or $(TestingPlatformCommandLineArguments.Contains('--report-gh-slow-test-threshold ')))"
+    >$(TestingPlatformCommandLineArguments) --report-gh-slow-test-threshold=30s</TestingPlatformCommandLineArguments>
+  </PropertyGroup>
+</Project>
