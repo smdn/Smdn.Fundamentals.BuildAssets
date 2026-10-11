@@ -15,14 +15,14 @@ permissions: {}
 
 # ref: https://docs.microsoft.com/en-us/dotnet/devops/dotnet-secure-github-action
 on:
-  # push:
-  #   branches: [ main ]
+  push:
+    branches: [ "main" ]
   #   paths:
   #   - 'src/**/*.cs'
   #   - 'src/**/*.csproj'
-  # pull_request:
-  #   # The branches below must be a subset of the branches above
-  #   branches: [ main ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ "main" ]
   #   paths:
   #   - 'src/**/*.cs'
   #   - 'src/**/*.csproj'
