@@ -200,3 +200,27 @@ dotnet_diagnostic.CA2262.severity     = warning       # Set 'MaxResponseHeadersL
 dotnet_diagnostic.CA2263.severity     = warning       # Prefer generic overload when type is known
 dotnet_diagnostic.CA2264.severity     = warning       # Do not pass a non-nullable value to 'ArgumentNullException.ThrowIfNull'
 dotnet_diagnostic.CA2265.severity     = warning       # Do not compare Span<T> to null or default
+
+#
+# StyleCop.Analyzers settings
+# ref: https://dotnetanalyzers.github.io/StyleCopAnalyzers/Configuration.html#settings-reference
+#
+
+# StyleCop.Analyzers Indentation Settings
+# The values for `indent_style` and `indent_size` respect the `.editorconfig` settings
+# provided by `Smdn.MSBuild.ProjectAssets.Common`.
+#indent_style = space
+#indent_size = 2
+
+# StyleCop.Analyzers Maintainability Settings
+stylecop.maintainability.topLevelTypes = class, struct, interface, delegate, enum
+
+# StyleCop.Analyzers Naming Settings
+stylecop.naming.allowedHungarianPrefixes = ex
+
+# StyleCop.Analyzers Layout Settings
+stylecop.layout.newlineAtEndOfFile = require
+stylecop.layout.allowDoWhileOnClosingBrace = true
+
+# StyleCop.Analyzers Documentation Settings
+stylecop.documentation.xmlHeader = false
