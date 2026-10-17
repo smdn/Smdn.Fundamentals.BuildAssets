@@ -70,6 +70,7 @@ dotnet_diagnostic.CA1200.severity     = warning       # Avoid using cref tags wi
 # https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/globalization-warnings
 dotnet_diagnostic.CA1305.severity     = warning       # Specify IFormatProvider
 dotnet_diagnostic.CA1307.severity     = warning       # Specify StringComparison for clarity
+dotnet_diagnostic.CA1310.severity     = suggestion    # Specify StringComparison for correctness
 dotnet_diagnostic.CA1311.severity     = warning       # Specify a culture or use an invariant version
 
 # https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/maintainability-warnings
@@ -84,6 +85,7 @@ dotnet_diagnostic.CA1511.severity     = suggestion    # Use ArgumentException th
 dotnet_diagnostic.CA1512.severity     = suggestion    # Use ArgumentOutOfRangeException throw helper
 dotnet_diagnostic.CA1513.severity     = suggestion    # Use ObjectDisposedException throw helper
 dotnet_diagnostic.CA1514.severity     = warning       # Avoid redundant length argument
+dotnet_diagnostic.CA1516.severity     = warning       # Use cross-platform intrinsics
 
 # https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/naming-warnings
 dotnet_diagnostic.CA1707.severity     = suggestion    # Identifiers should not contain underscores
@@ -145,8 +147,15 @@ dotnet_diagnostic.CA1867.severity     = warning       # Use 'string.Method(char)
 dotnet_diagnostic.CA1868.severity     = warning       # Unnecessary call to 'Contains' for sets
 dotnet_diagnostic.CA1869.severity     = warning       # Cache and reuse 'JsonSerializerOptions' instances
 dotnet_diagnostic.CA1870.severity     = warning       # Use a cached 'SearchValues' instance
+dotnet_diagnostic.CA1871.severity     = warning       # Do not pass a nullable struct to 'ArgumentNullException.ThrowIfNull'
+dotnet_diagnostic.CA1872.severity     = warning       # Prefer 'Convert.ToHexString' and 'Convert.ToHexStringLower' over call chains based on 'BitConverter.ToString'
+dotnet_diagnostic.CA1873.severity     = warning       # Avoid potentially expensive logging
+dotnet_diagnostic.CA1874.severity     = warning       # Use 'Regex.IsMatch'
+dotnet_diagnostic.CA1875.severity     = warning       # Use 'Regex.Count'
+dotnet_diagnostic.CA1877.severity     = warning       # Use 'Path.Combine' or 'Path.Join' overloads
+dotnet_diagnostic.CA1878.severity     = warning       # Prefer ReadOnlySpan properties over readonly array fields
 
-# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/reliability-warnings
 dotnet_diagnostic.CA2000.severity     = warning       # Dispose objects before losing scope
 dotnet_diagnostic.CA2007.severity     = warning       # Do not directly await a Task
 dotnet_diagnostic.CA2011.severity     = warning       # Do not assign property within its setter
@@ -158,6 +167,11 @@ dotnet_diagnostic.CA2017.severity     = warning       # Parameter count mismatch
 dotnet_diagnostic.CA2019.severity     = warning       # ThreadStatic fields should not use inline initialization
 dotnet_diagnostic.CA2020.severity     = warning       # Prevent behavioral change caused by built-in operators of IntPtr/UIntPtr
 dotnet_diagnostic.CA2021.severity     = warning       # Don't call Enumerable.Cast<T> or Enumerable.OfType<T> with incompatible types
+dotnet_diagnostic.CA2022.severity     = warning       # Avoid inexact read with Stream.Read
+dotnet_diagnostic.CA2023.severity     = warning       # Invalid braces in message template
+dotnet_diagnostic.CA2024.severity     = warning       # Do not use StreamReader.EndOfStream in async methods
+dotnet_diagnostic.CA2025.severity     = warning       # Do not pass 'IDisposable' instances into unawaited tasks
+dotnet_diagnostic.CA2026.severity     = warning       # Prefer JsonElement.Parse over JsonDocument.Parse().RootElement
 
 # https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/usage-warnings
 dotnet_diagnostic.CA2200.severity     = warning       # Rethrow to preserve stack details
@@ -182,3 +196,7 @@ dotnet_diagnostic.CA2255.severity     = warning       # The ModuleInitializer at
 dotnet_diagnostic.CA2259.severity     = warning       # Ensure ThreadStatic is only used with static fields
 dotnet_diagnostic.CA2260.severity     = warning       # Implement generic math interfaces correctly
 dotnet_diagnostic.CA2261.severity     = warning       # Do not use ConfigureAwaitOptions.SuppressThrowing with Task<TResult>
+dotnet_diagnostic.CA2262.severity     = warning       # Set 'MaxResponseHeadersLength' properly
+dotnet_diagnostic.CA2263.severity     = warning       # Prefer generic overload when type is known
+dotnet_diagnostic.CA2264.severity     = warning       # Do not pass a non-nullable value to 'ArgumentNullException.ThrowIfNull'
+dotnet_diagnostic.CA2265.severity     = warning       # Do not compare Span<T> to null or default
