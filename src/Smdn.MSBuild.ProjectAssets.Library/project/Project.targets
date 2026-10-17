@@ -23,8 +23,6 @@ SPDX-License-Identifier: MIT
   </ImportGroup>
 
   <ImportGroup Condition=" '$(IsTestProject)' == 'true' ">
-    <!-- NUnit Analyzers code analysis -->
-    <Import Project="$(MSBuildThisFileDirectory)CodeAnalysis.NUnitAnalyzers.targets" />
     <!-- Microsoft.Testing.Extensions.GitHubActionsReport (Microsoft.Testing.Platform) -->
     <Import
       Condition=" '$(EnableNUnitRunner)' == 'true' "
