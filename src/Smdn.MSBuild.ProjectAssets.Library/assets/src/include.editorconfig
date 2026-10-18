@@ -221,9 +221,12 @@ stylecop.naming.allowedHungarianPrefixes = ex
 # StyleCop.Analyzers Layout Settings
 stylecop.layout.newlineAtEndOfFile = require
 stylecop.layout.allowDoWhileOnClosingBrace = true
+stylecop.layout.allowBracelessIfStatements = sameLine
 
 # StyleCop.Analyzers Documentation Settings
 stylecop.documentation.xmlHeader = false
+# Since the StyleCop.Analyzers configuration cannot effectively handle SPDX file headers, suppress warning SA1636.
+#stylecop.documentation.copyrightText = SPDX-FileCopyrightText:
 
 #
 # StyleCop.Analyzers rule sets
@@ -365,12 +368,13 @@ dotnet_diagnostic.SA1409.severity  = none       # Remove unnecessary code
 dotnet_diagnostic.SA1410.severity  = warning    # Remove delegate parenthesis when possible
 dotnet_diagnostic.SA1411.severity  = warning    # Attribute constructor should not use unnecessary parenthesis
 dotnet_diagnostic.SA1412.severity  = none       # Store files as UTF-8 with byte order mark
+dotnet_diagnostic.SX1412.severity  = warning    # Store files as UTF-8 without byte order mark
 dotnet_diagnostic.SA1413.severity  = warning    # Use trailing comma in multi-line initializers
 dotnet_diagnostic.SA1414.severity  = warning    # Tuple types in signatures should have element names
 
 # StyleCop.Analyzers.LayoutRules
 dotnet_diagnostic.SA1500.severity  = none       # Braces for multi-line statements should not share line
-dotnet_diagnostic.SA1501.severity  = suggestion # Statement should not be on a single line
+dotnet_diagnostic.SA1501.severity  = warning    # Statement should not be on a single line
 dotnet_diagnostic.SA1502.severity  = none       # Element should not be on a single line
 dotnet_diagnostic.SA1503.severity  = none       # Braces should not be omitted
 dotnet_diagnostic.SA1504.severity  = none       # All accessors should be single-line or multi-line
@@ -428,7 +432,7 @@ dotnet_diagnostic.SA1632.severity  = none       # Documentation text should meet
 dotnet_diagnostic.SA1633.severity  = none       # File should have header
 dotnet_diagnostic.SA1634.severity  = warning    # File header should show copyright
 dotnet_diagnostic.SA1635.severity  = warning    # File header should have copyright text
-dotnet_diagnostic.SA1636.severity  = warning    # File header copyright text should match
+dotnet_diagnostic.SA1636.severity  = none       # File header copyright text should match --- Since the StyleCop.Analyzers configuration cannot effectively handle SPDX file headers, suppress this warning.
 dotnet_diagnostic.SA1637.severity  = none       # File header should contain file name
 dotnet_diagnostic.SA1638.severity  = warning    # File header file name documentation should match file name
 dotnet_diagnostic.SA1639.severity  = warning    # File header should have summary
@@ -445,3 +449,4 @@ dotnet_diagnostic.SA1649.severity  = warning    # File name should match first t
 dotnet_diagnostic.SA1650.severity  = none       # Element documentation should be spelled correctly
 dotnet_diagnostic.SA1651.severity  = warning    # Do not use placeholder elements
 dotnet_diagnostic.SA1653.severity  = warning    # Only one partial declaration should contain summary documentation
+dotnet_diagnostic.SA1654.severity  = warning    # Properly encode generic brackets
