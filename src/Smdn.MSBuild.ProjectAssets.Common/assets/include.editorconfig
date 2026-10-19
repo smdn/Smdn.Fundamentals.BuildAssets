@@ -53,8 +53,6 @@ dotnet_analyzer_diagnostic.category-Style.severity = warning
 # Example EditorConfig file
 # https://learn.microsoft.com/ja-jp/dotnet/fundamentals/code-analysis/code-style-rule-options
 #
-# Organize usings
-dotnet_sort_system_directives_first = true
 # this. preferences
 dotnet_style_qualification_for_field      = false:warning
 dotnet_style_qualification_for_property   = false:warning
@@ -70,19 +68,21 @@ dotnet_style_parentheses_in_other_binary_operators        = always_for_clarity:s
 dotnet_style_parentheses_in_other_operators               = never_if_unnecessary:suggestion
 # Modifier preferences
 dotnet_style_require_accessibility_modifiers = for_non_interface_members:warning
-dotnet_style_readonly_field = true:warning
 # Expression-level preferences
 dotnet_style_object_initializer = true:suggestion
 dotnet_style_collection_initializer = true:suggestion
 dotnet_style_explicit_tuple_names = true:suggestion
 dotnet_style_null_propagation = true:suggestion
 dotnet_style_coalesce_expression = true:suggestion
+dotnet_style_operator_placement_when_wrapping = end_of_line
 dotnet_style_prefer_is_null_check_over_reference_equality_method = true:suggestion
 dotnet_style_prefer_inferred_tuple_names = true:suggestion
 dotnet_style_prefer_inferred_anonymous_type_member_names = true:suggestion
 dotnet_style_prefer_auto_properties = true:suggestion
 dotnet_style_prefer_conditional_expression_over_assignment = true:suggestion
 dotnet_style_prefer_conditional_expression_over_return = true:suggestion
+# Field preferences
+dotnet_style_readonly_field = true:warning
 
 #
 # Code-style naming rules
@@ -190,7 +190,7 @@ dotnet_naming_style.pascal_case_style.capitalization = pascal_case
 
 # https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/dotnet-formatting-options#using-directive-options
 dotnet_separate_import_directive_groups = true
-
+dotnet_sort_system_directives_first = true
 
 #
 # C# formatting options
@@ -263,7 +263,7 @@ csharp_preserve_single_line_blocks = true
 # https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0304
 # Use collection expression for fluent (IDE0305)
 # https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0305
-dotnet_style_prefer_collection_expression = true:suggestion
+dotnet_style_prefer_collection_expression = when_types_loosely_match:suggestion
 
 # 'var' preferences (IDE0007 and IDE0008)
 # https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0007-ide0008
@@ -335,6 +335,10 @@ csharp_style_deconstructed_variable_declaration = true:suggestion
 # https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0053
 csharp_style_expression_bodied_lambdas = when_on_single_line:suggestion
 
+# Use compound assignment (IDE0054 and IDE0074)
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0054-ide0074
+dotnet_style_prefer_compound_assignment = true:suggestion
+
 # Use index operator (IDE0056)
 # https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0056
 csharp_style_prefer_index_operator = true:suggestion
@@ -346,6 +350,14 @@ csharp_style_prefer_range_operator = true:suggestion
 # Remove unnecessary expression value (IDE0058)
 # https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0058
 csharp_style_unused_value_expression_statement_preference = discard_variable:suggestion
+
+# Remove unnecessary value assignment (IDE0059)
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0059
+csharp_style_unused_value_assignment_preference = discard_variable:warning
+
+# Remove unused parameter (IDE0060)
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0060
+dotnet_code_quality_unused_parameters = all:suggestion
 
 # Use expression body for local functions (IDE0061)
 # https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0061
@@ -367,6 +379,18 @@ csharp_using_directive_placement = outside_namespace:warning
 # https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0066
 csharp_style_prefer_switch_expression = true:suggestion
 
+# Use 'System.HashCode.Combine' (IDE0070)
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0070
+dotnet_prefer_system_hash_code = true:warning
+
+# Simplify interpolation (IDE0071)
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0071
+dotnet_style_prefer_simplified_interpolation = true:warning
+
+# Simplify conditional expression (IDE0075)
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0075
+dotnet_style_prefer_simplified_boolean_expressions = true:suggestion
+
 # Use pattern matching (IDE0078 and IDE0260)
 # https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0078-ide0260
 csharp_style_prefer_pattern_matching = true:suggestion
@@ -382,6 +406,10 @@ csharp_style_implicit_object_creation_when_type_is_apparent = true:warning
 # Namespace does not match folder structure (IDE0130)
 # https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0130
 dotnet_style_namespace_match_folder = true:warning
+
+# Prefer 'null' check over type check (IDE0150)
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0150
+csharp_style_prefer_null_check_over_type_check = true:warning
 
 # Namespace declaration preferences (IDE0160 and IDE0161)
 # https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0160-ide0161
@@ -399,6 +427,18 @@ csharp_style_prefer_tuple_swap = true:warning
 # https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0200
 csharp_style_prefer_method_group_conversion = true:warning
 
+# Convert to top-level statements (IDE0210)
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0210
+csharp_style_prefer_top_level_statements = true:suggestion
+
+# Add explicit cast in foreach loop (IDE0220)
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0220
+dotnet_style_prefer_foreach_explicit_cast_in_source = when_strongly_typed:warning
+
+# Add explicit cast (IDE0221)
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0221
+dotnet_style_prefer_non_hidden_explicit_cast_in_source = true:suggestion
+
 # Use UTF-8 string literal (IDE0230)
 # https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0230
 csharp_style_prefer_utf8_string_literals = true:suggestion
@@ -414,6 +454,30 @@ csharp_style_prefer_readonly_struct_member = true:warning
 # Use primary constructor (IDE0290)
 # https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0290
 csharp_style_prefer_primary_constructors = true:suggestion
+
+# Make anonymous function static (IDE0320)
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0320
+csharp_prefer_static_anonymous_function = true:warning
+
+# Prefer 'System.Threading.Lock' (IDE0330)
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0330
+csharp_prefer_system_threading_lock = true:warning
+
+# Use unbound generic type (IDE0340)
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0340
+csharp_style_prefer_unbound_generic_type_in_nameof = true:warning
+
+# Use implicitly typed lambda (IDE0350)
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0350
+csharp_style_prefer_implicitly_typed_lambda_expression = true:suggestion
+
+# Simplify property accessor (IDE0360)
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0360
+csharp_style_prefer_simple_property_accessors = true:warning
+
+# Use labeled jump statement (IDE0410)
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0410
+csharp_style_prefer_labeled_jump_statements = true:warning
 
 # Use conditional delegate call (IDE1005)
 # https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide1005
@@ -553,3 +617,13 @@ dotnet_diagnostic.IDE0340.severity    = warning       # Use unbound generic type
 
 # https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0350
 dotnet_diagnostic.IDE0350.severity    = suggestion    # Use implicitly typed lambda
+
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0370
+dotnet_diagnostic.IDE0370.severity    = warning       # Remove unnecessary suppression
+
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0380
+dotnet_diagnostic.IDE0380.severity    = warning       # Remove unnecessary unsafe modifier
+
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0390-ide0391
+dotnet_diagnostic.IDE0390.severity    = warning       # Make method synchronous
+dotnet_diagnostic.IDE0391.severity    = warning       # Make method synchronous
