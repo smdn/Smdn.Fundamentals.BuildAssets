@@ -450,3 +450,35 @@ dotnet_diagnostic.SA1650.severity  = none       # Element documentation should b
 dotnet_diagnostic.SA1651.severity  = warning    # Do not use placeholder elements
 dotnet_diagnostic.SA1653.severity  = warning    # Only one partial declaration should contain summary documentation
 dotnet_diagnostic.SA1654.severity  = warning    # Properly encode generic brackets
+
+# -----------------------------------------------------------------------------
+# IDE0040 Severity Overrides for Partial Types
+#
+# By default, the code style rule `IDE0040: Add accessibility modifiers` requires
+# accessibility modifiers to be explicitly specified on ALL parts of a `partial`
+# type declaration (By Design).
+#
+# However, the coding convention established in this project enforces accessibility
+# modifiers only on the primary type declaration, while allowing them to be omitted
+# in separated feature/part files to avoid redundant declaration.
+#
+# To accommodate this convention, this configuration dynamically adjusts the severity
+# of IDE0040 based on the file naming pattern. This configuration assumes the
+# following conventions:
+#
+#   - Primary declaration files contain a single period: [TypeName].cs
+#   - Separated feature/part files contain multiple periods: [TypeName].[FeatureName].cs
+#
+# See also:
+#   https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0040
+#   https://github.com/dotnet/roslyn/issues/36544
+#   https://github.com/dotnet/roslyn/issues/52904
+# -----------------------------------------------------------------------------
+
+# Enable IDE0040 (Warning) as the baseline for all C# files (Primary declarations)
+[*.cs]
+dotnet_diagnostic.IDE0040.severity = warning
+
+# Disable IDE0040 (None) for separated feature/part files to allow omission
+[**/*.*.cs]
+dotnet_diagnostic.IDE0040.severity = none
