@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2026 smdn <smdn@smdn.jp>
+# SPDX-License-Identifier: MIT
+#
+# EditorConfig is awesome: https://EditorConfig.org
+#
+[Test.*.cs]
+#
+# StyleCop.Analyzers settings
+# ref: https://dotnetanalyzers.github.io/StyleCopAnalyzers/Configuration.html#settings-reference
+#
+
+# StyleCop.Analyzers Indentation Settings
+# The values for `indent_style` and `indent_size` respect the `.editorconfig` settings
+# provided by `Smdn.MSBuild.ProjectAssets.Common`.
+#indent_style = space
+#indent_size = 2
+
+# StyleCop.Analyzers Documentation Settings
+stylecop.documentation.xmlHeader = false
+# Since the StyleCop.Analyzers configuration cannot effectively handle SPDX file headers, suppress warning SA1636.
+#stylecop.documentation.copyrightText = SPDX-FileCopyrightText:
+
+# SA1636: File header copyright text should match
+# Since the StyleCop.Analyzers configuration cannot effectively handle SPDX file headers, suppress this warning.
+dotnet_diagnostic.SA1636.severity  = none
+
+# SA1515: Single-line comment should be preceded by blank line
+dotnet_diagnostic.SA1515.severity  = none
