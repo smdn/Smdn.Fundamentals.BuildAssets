@@ -42,6 +42,17 @@ dotnet_diagnostic.NUnit2056.severity = warning # Consider using Assert.EnterMult
 
 dotnet_diagnostic.NUnit2050.severity = error # NUnit 4 no longer supports string.Format specification
 
+#
+# Relax the default C# severity levels configured in Smdn.MSBuild.ProjectAssets.Common
+#
+dotnet_diagnostic.IDE0004.severity = suggestion # Remove unnecessary cast
+dotnet_diagnostic.IDE0049.severity = suggestion # Use language keywords instead of framework type names for type references
+dotnet_diagnostic.IDE0051.severity = suggestion # Remove unused private member
+dotnet_diagnostic.IDE0052.severity = suggestion # Remove unread private member
+dotnet_diagnostic.IDE0060.severity = suggestion # Remove unused parameter
+dotnet_diagnostic.IDE0075.severity = suggestion # Simplify conditional expression
+dotnet_diagnostic.IDE0330.severity = suggestion # Prefer 'System.Threading.Lock'
+
 # -----------------------------------------------------------------------------
 # IDE0040 Severity Overrides for Partial Types
 #
