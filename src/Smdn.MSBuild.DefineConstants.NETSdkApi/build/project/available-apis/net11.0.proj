@@ -9,6 +9,7 @@ SPDX-License-Identifier: MIT
   >
     <ItemGroup>
       <_NETSdkAvailableApi Namespace="System" Include="Type.GetNullableUnderlyingType"/>
+      <_NETSdkAvailableApi Namespace="System.Runtime.CompilerServices" Include="RuntimeFeature.IsMultithreadingSupported" />
     </ItemGroup>
   </Target>
 </Project>

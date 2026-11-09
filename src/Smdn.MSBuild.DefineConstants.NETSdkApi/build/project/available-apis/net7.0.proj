@@ -76,6 +76,8 @@ SPDX-License-Identifier: MIT
       <_NETSdkAvailableApi Namespace="System.Numerics" Include="IUnsignedNumber" />
       <_NETSdkAvailableApi Namespace="System.Runtime.CompilerServices" Include="CompilerFeatureRequiredAttribute"/>
       <_NETSdkAvailableApi Namespace="System.Runtime.CompilerServices" Include="RequiredMemberAttribute"/>
+      <_NETSdkAvailableApi Namespace="System.Runtime.CompilerServices" Include="RuntimeFeature.ByRefFields" />
+      <_NETSdkAvailableApi Namespace="System.Runtime.CompilerServices" Include="RuntimeFeature.NumericIntPtr" />
       <_NETSdkAvailableApi Namespace="System.Runtime.InteropServices" Include="LibraryImportAttribute"/>
       <_NETSdkAvailableApi Namespace="System.Runtime.InteropServices" Include="StringMarshalling"/>
       <_NETSdkAvailableApi Namespace="System.Security.Cryptography" Include="AsymmetricAlgorithm.ExportEncryptedPkcs8PrivateKeyPem" />

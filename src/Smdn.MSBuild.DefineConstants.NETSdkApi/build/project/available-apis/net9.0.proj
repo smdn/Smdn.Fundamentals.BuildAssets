@@ -1,4 +1,4 @@
-<!--
+﻿<!--
 SPDX-FileCopyrightText: 2026 smdn <smdn@smdn.jp>
 SPDX-License-Identifier: MIT
 -->
@@ -25,6 +25,7 @@ SPDX-License-Identifier: MIT
       <_NETSdkAvailableApi Namespace="System.Linq" Include="Enumerable.AggregateBy"/>
       <_NETSdkAvailableApi Namespace="System.Linq" Include="Enumerable.CountBy"/>
       <_NETSdkAvailableApi Namespace="System.Linq" Include="Enumerable.Index"/>
+      <_NETSdkAvailableApi Namespace="System.Runtime.CompilerServices" Include="RuntimeFeature.ByRefLikeGenerics" />
       <_NETSdkAvailableApi Namespace="System.Threading" Include="Lock"/>
       <_NETSdkAvailableApi Namespace="System.Threading.Tasks" Include="Task.WhenEach"/>
     </ItemGroup>

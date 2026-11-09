@@ -1,4 +1,4 @@
-<!--
+﻿<!--
 SPDX-FileCopyrightText: 2026 smdn <smdn@smdn.jp>
 SPDX-License-Identifier: MIT
 -->
@@ -82,6 +82,7 @@ SPDX-License-Identifier: MIT
       <_NETSdkAvailableApi Namespace="System.Reflection" Include="NullabilityInfo"/>
       <_NETSdkAvailableApi Namespace="System.Reflection" Include="NullabilityInfoContext"/>
       <_NETSdkAvailableApi Namespace="System.Reflection" Include="NullabilityState"/>
+      <_NETSdkAvailableApi Namespace="System.Runtime.CompilerServices" Include="RuntimeFeature.VirtualStaticsInInterfaces" />
       <_NETSdkAvailableApi Namespace="System.Runtime.InteropServices" Include="NativeMemory"/>
       <_NETSdkAvailableApi Namespace="System.Text" Include="SpanLineEnumerator"/>
       <_NETSdkAvailableApi Namespace="System.Text" Include="StringBuilder.Append(AppendInterpolatedStringHandler)"/>
