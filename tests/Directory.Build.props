@@ -9,10 +9,10 @@ SPDX-License-Identifier: MIT
 
   <Import Project="$(MSBuildThisFileDirectory)..\src\ProjectAssets.Library.props" />
 
-  <Import
-    Condition=" '$(IsTestProject)' == 'true' "
-    Project="$(MSBuildThisFileDirectory)TargetFrameworks.props"
-  />
+  <PropertyGroup Condition=" '$(IsTestProject)' == 'true' ">
+    <!-- default target frameworks for test projects -->
+    <TargetFrameworks>net11.0;net10.0</TargetFrameworks>
+  </PropertyGroup>
 
   <ItemGroup Condition=" '$(IsTestProject)' == 'true' ">
     <PackageReference Include="NUnit" Version="5.0.0" />
