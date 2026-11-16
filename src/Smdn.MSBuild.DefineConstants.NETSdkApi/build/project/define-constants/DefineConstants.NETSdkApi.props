@@ -11,7 +11,6 @@ SPDX-License-Identifier: MIT
     <Import Condition="'$(TargetFramework)'=='net11.0'" Project="$(MSBuildThisFileDirectory)DefineConstants.NETSdkApi.net11.0.props"/>
     <Import Condition="'$(TargetFramework)'=='net10.0'" Project="$(MSBuildThisFileDirectory)DefineConstants.NETSdkApi.net10.0.props"/>
     <Import Condition="'$(TargetFramework)'=='net9.0'" Project="$(MSBuildThisFileDirectory)DefineConstants.NETSdkApi.net9.0.props"/>
-    <Import Condition="'$(TargetFramework)'=='net8.0'" Project="$(MSBuildThisFileDirectory)DefineConstants.NETSdkApi.net8.0.props"/>
     <Import Condition="'$(TargetFramework)'=='netstandard2.1'" Project="$(MSBuildThisFileDirectory)DefineConstants.NETSdkApi.netstandard2.1.props"/>
     <Import Condition="'$(TargetFramework)'=='netstandard2.0'" Project="$(MSBuildThisFileDirectory)DefineConstants.NETSdkApi.netstandard2.0.props"/>
     <Import Condition="'$(TargetFramework)'=='net481'" Project="$(MSBuildThisFileDirectory)DefineConstants.NETSdkApi.net481.props"/>
@@ -20,6 +19,7 @@ SPDX-License-Identifier: MIT
     <Import Condition="'$(TargetFramework)'=='net471'" Project="$(MSBuildThisFileDirectory)DefineConstants.NETSdkApi.net471.props"/>
     <Import Condition="'$(TargetFramework)'=='net47'" Project="$(MSBuildThisFileDirectory)DefineConstants.NETSdkApi.net47.props"/>
     <Import Condition="'$(TargetFramework)'=='net462'" Project="$(MSBuildThisFileDirectory)DefineConstants.NETSdkApi.net462.props"/>
+    <Import Condition="'$(TargetFramework)'=='net8.0'" Project="$(MSBuildThisFileDirectory)DefineConstants.NETSdkApi.net8.0.props"/>
     <Import Condition="'$(TargetFramework)'=='net7.0'" Project="$(MSBuildThisFileDirectory)DefineConstants.NETSdkApi.net7.0.props"/>
     <Import Condition="'$(TargetFramework)'=='net6.0'" Project="$(MSBuildThisFileDirectory)DefineConstants.NETSdkApi.net6.0.props"/>
     <Import Condition="'$(TargetFramework)'=='net5.0'" Project="$(MSBuildThisFileDirectory)DefineConstants.NETSdkApi.net5.0.props"/>
