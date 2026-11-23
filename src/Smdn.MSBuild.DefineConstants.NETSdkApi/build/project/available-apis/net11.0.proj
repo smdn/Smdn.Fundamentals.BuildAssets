@@ -8,8 +8,56 @@ SPDX-License-Identifier: MIT
     Returns="@(_NETSdkAvailableApi)"
   >
     <ItemGroup>
+      <_NETSdkAvailableApi Namespace="System" Include="MemoryExtensions.ContainsAnyWhiteSpace"/>
+      <_NETSdkAvailableApi Namespace="System" Include="MemoryExtensions.IndexOfAnyExceptWhiteSpace"/>
+      <_NETSdkAvailableApi Namespace="System" Include="MemoryExtensions.IndexOfAnyWhiteSpace"/>
+      <_NETSdkAvailableApi Namespace="System" Include="MemoryExtensions.LastIndexOfAnyExceptWhiteSpace"/>
+      <_NETSdkAvailableApi Namespace="System" Include="MemoryExtensions.LastIndexOfAnyWhiteSpace"/>
+      <_NETSdkAvailableApi Namespace="System" Include="MemoryExtensions.Max"/>
+      <_NETSdkAvailableApi Namespace="System" Include="MemoryExtensions.Min"/>
+      <_NETSdkAvailableApi Namespace="System" Include="Random.NextBinaryFloat"/>
+      <_NETSdkAvailableApi Namespace="System" Include="Random.NextInteger"/>
       <_NETSdkAvailableApi Namespace="System" Include="Type.GetNullableUnderlyingType"/>
+      <_NETSdkAvailableApi Namespace="System.Buffers" Include="ReadOnlySequenceStream"/>
+      <_NETSdkAvailableApi Namespace="System.Diagnostics" Include="Process.ReadAllBytes"/>
+      <_NETSdkAvailableApi Namespace="System.Diagnostics" Include="Process.ReadAllLines"/>
+      <_NETSdkAvailableApi Namespace="System.Diagnostics" Include="Process.ReadAllText"/>
+      <_NETSdkAvailableApi Namespace="System.Diagnostics" Include="Process.Run"/>
+      <_NETSdkAvailableApi Namespace="System.Diagnostics" Include="Process.RunAndCaptureText"/>
+      <_NETSdkAvailableApi Namespace="System.Diagnostics" Include="Process.Signal"/>
+      <_NETSdkAvailableApi Namespace="System.Diagnostics" Include="Process.StartAndForget"/>
+      <_NETSdkAvailableApi Namespace="System.Diagnostics" Include="Process.TryWaitForExitStatus"/>
+      <_NETSdkAvailableApi Namespace="System.Diagnostics" Include="Process.WaitForExitStatus"/>
+      <_NETSdkAvailableApi Namespace="System.Diagnostics" Include="ProcessExitStatus"/>
+      <_NETSdkAvailableApi Namespace="System.Diagnostics" Include="ProcessOutputLine"/>
+      <_NETSdkAvailableApi Namespace="System.Diagnostics" Include="ProcessStartInfo.InheritedHandles"/>
+      <_NETSdkAvailableApi Namespace="System.Diagnostics" Include="ProcessStartInfo.KillOnParentExit"/>
+      <_NETSdkAvailableApi Namespace="System.Diagnostics" Include="ProcessStartInfo.StandardErrorHandle"/>
+      <_NETSdkAvailableApi Namespace="System.Diagnostics" Include="ProcessStartInfo.StandardInputHandle"/>
+      <_NETSdkAvailableApi Namespace="System.Diagnostics" Include="ProcessStartInfo.StandardOutputHandle"/>
+      <_NETSdkAvailableApi Namespace="System.Diagnostics" Include="ProcessStartInfo.StartDetached"/>
+      <_NETSdkAvailableApi Namespace="System.Diagnostics" Include="ProcessStartInfo.StartSuspended"/>
+      <_NETSdkAvailableApi Namespace="System.Diagnostics.CodeAnalysis" Include="RequiresUnsafeAttribute"/>
+      <_NETSdkAvailableApi Namespace="System.Globalization" Include="NumberStyles.HexFloat"/>
+      <_NETSdkAvailableApi Namespace="System.IO" Include="ReadOnlyMemoryStream"/>
+      <_NETSdkAvailableApi Namespace="System.IO" Include="StringStream"/>
+      <_NETSdkAvailableApi Namespace="System.IO" Include="WritableMemoryStream"/>
+      <_NETSdkAvailableApi Namespace="System.Net" Include="DnsResolver" />
+      <_NETSdkAvailableApi Namespace="System.Net" Include="DnsResult&lt;T&gt;" />
+      <_NETSdkAvailableApi Namespace="System.Net.Mime" Include="MediaTypeMap" />
+      <_NETSdkAvailableApi Namespace="System.Numerics" Include="DivisionRounding" />
+      <_NETSdkAvailableApi Namespace="System.Numerics" Include="IBinaryInteger.Divide" />
+      <_NETSdkAvailableApi Namespace="System.Numerics" Include="IBinaryInteger.DivRem(TSelf, TSelf, DivisionRounding)" />
+      <_NETSdkAvailableApi Namespace="System.Numerics" Include="IBinaryInteger.Remainder" />
+      <_NETSdkAvailableApi Namespace="System.Numerics" Include="INumberBase.TryParsePartial" />
+      <_NETSdkAvailableApi Namespace="System.Numerics.Colors" Include="%2A"/> <!-- '*'/entire namespace -->
+      <_NETSdkAvailableApi Namespace="System.Runtime.CompilerServices" Include="IsClosedTypeAttribute" />
+      <_NETSdkAvailableApi Namespace="System.Runtime.CompilerServices" Include="IUnion" />
+      <_NETSdkAvailableApi Namespace="System.Runtime.CompilerServices" Include="MemorySafetyRulesAttribute" />
       <_NETSdkAvailableApi Namespace="System.Runtime.CompilerServices" Include="RuntimeFeature.IsMultithreadingSupported" />
+      <_NETSdkAvailableApi Namespace="System.Runtime.CompilerServices" Include="UnionAttribute" />
+      <_NETSdkAvailableApi Namespace="System.Text" Include="StringBuilder.MoveChunks"/>
+      <_NETSdkAvailableApi Namespace="System.Text.RegularExpressions" Include="RegexOptions.AnyNewLine"/>
     </ItemGroup>
   </Target>
 </Project>
