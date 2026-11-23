@@ -41,6 +41,12 @@ SPDX-License-Identifier: MIT
       <_DefineConstantsPropsTargetFramework Include="net461;net46;net452;net451;net45" />
 
       <_DefineConstantsPropsFiles Include="@(_DefineConstantsPropsTargetFramework)">
+        <!-- Default <Import> condition for all TMFs -->
+        <ImportCondition>&apos;$([MSBuild]::Escape('$'))(TargetFramework)&apos;==&apos;%(_DefineConstantsPropsTargetFramework.Identity)&apos;</ImportCondition>
+        <!-- Append <Import> condition for enabling OS-specific TMFs (>= net5.0) -->
+        <ImportCondition
+          Condition="$([MSBuild]::IsTargetFrameworkCompatible('%(_DefineConstantsPropsTargetFramework.Identity)', 'net5.0'))"
+        >%(_DefineConstantsPropsFiles.ImportCondition) or $([MSBuild]::Escape('$'))(TargetFramework.StartsWith(&apos;%(_DefineConstantsPropsTargetFramework.Identity)-&apos;))</ImportCondition>
         <OutputFileName>$(_DefineConstantsPropsCommonFileNamePrefix).%(_DefineConstantsPropsTargetFramework.Identity).props</OutputFileName>
       </_DefineConstantsPropsFiles>
     </ItemGroup>
@@ -61,7 +67,7 @@ SPDX-License-Identifier: MIT
       generates props file for selecting and importing props file for specific $(TargetFramework)
     -->
     <ItemGroup>
-      <_DefineConstantsPropsImportLines Include="&lt;Import Condition=&quot;&apos;$([MSBuild]::Escape('$'))(TargetFramework)&apos;==&apos;%(_DefineConstantsPropsFiles.Identity)&apos;&quot; Project=&quot;$([MSBuild]::Escape('$'))(MSBuildThisFileDirectory)%(_DefineConstantsPropsFiles.OutputFileName)&quot;/&gt;" />
+      <_DefineConstantsPropsImportLines Include="&lt;Import Condition=&quot;%(_DefineConstantsPropsFiles.ImportCondition)&quot; Project=&quot;$([MSBuild]::Escape('$'))(MSBuildThisFileDirectory)%(_DefineConstantsPropsFiles.OutputFileName)&quot;/&gt;" />
     </ItemGroup>
 
     <PropertyGroup>
