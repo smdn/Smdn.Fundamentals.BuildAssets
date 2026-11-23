@@ -1,6 +1,6 @@
-// Smdn.MSBuild.DefineConstants.NETSdkApi-1.8.5
+// Smdn.MSBuild.DefineConstants.NETSdkApi-1.9.0
 //   Name: Smdn.MSBuild.DefineConstants.NETSdkApi
-//   InformationalVersion: 1.8.5
+//   InformationalVersion: 1.9.0
 
 // List of symbols defined on target framework 'net6.0'
 #define NULL_STATE_STATIC_ANALYSIS_ATTRIBUTES // System.Diagnostics.CodeAnalysis (NET5_0_OR_GREATER || NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_0_OR_GREATER)
