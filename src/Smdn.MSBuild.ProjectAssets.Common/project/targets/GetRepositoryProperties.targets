@@ -1,9 +1,13 @@
-<!--
+﻿<!--
 SPDX-FileCopyrightText: 2021 smdn <smdn@smdn.jp>
 SPDX-License-Identifier: MIT
 -->
 <Project>
   <Target Name="GetRepositoryProperties">
+    <PropertyGroup>
+      <_IsInsideOfRepositoryTree>false</_IsInsideOfRepositoryTree>
+    </PropertyGroup>
+
     <!-- If $(RepositoryType) is not explicitly specified, it is assumed to be 'git'. -->
     <CallTarget
       Targets="GetRepositoryProperties_Git"
@@ -20,8 +24,23 @@ SPDX-License-Identifier: MIT
     </PropertyGroup>
 
     <Exec
-      Command="$(GitCommandLineInterfacePath) branch --show-current"
+      Command="$(GitCommandLineInterfacePath) rev-parse --git-dir"
       Condition=" '$(GitCommandLineInterfacePath)' != '' and '$(RepositoryBranch)' == '' "
+      ConsoleToMSBuild="true"
+      IgnoreExitCode="true"
+      StandardOutputImportance="Low"
+      StandardErrorImportance="Low"
+    >
+      <Output TaskParameter="ExitCode" PropertyName="_GitRevParseGitDirExitCode" />
+    </Exec>
+
+    <PropertyGroup>
+      <_IsInsideOfRepositoryTree Condition="'$(_GitRevParseGitDirExitCode)' == '0'">true</_IsInsideOfRepositoryTree>
+    </PropertyGroup>
+
+    <Exec
+      Command="$(GitCommandLineInterfacePath) branch --show-current"
+      Condition=" '$(_IsInsideOfRepositoryTree)' == 'true' and '$(GitCommandLineInterfacePath)' != '' and '$(RepositoryBranch)' == '' "
       ConsoleToMSBuild="true"
       EchoOff="true"
       StandardOutputImportance="Low"
@@ -31,7 +50,7 @@ SPDX-License-Identifier: MIT
 
     <Exec
       Command="$(GitCommandLineInterfacePath) rev-parse HEAD"
-      Condition=" '$(GitCommandLineInterfacePath)' != '' and '$(RepositoryCommit)' == '' "
+      Condition=" '$(_IsInsideOfRepositoryTree)' == 'true' and '$(GitCommandLineInterfacePath)' != '' and '$(RepositoryCommit)' == '' "
       ConsoleToMSBuild="true"
       EchoOff="true"
       StandardOutputImportance="Low"
@@ -40,7 +59,19 @@ SPDX-License-Identifier: MIT
     </Exec>
   </Target>
 
-  <Target Name="GetRepositoryProperties_VersionOrRepositoryTypeNotSupported" Condition="('$(RepositoryBranch)' == '') and ('$(RepositoryCommit)' == '')">
-    <Error Text="could not get repository properties (type: $(RepositoryType))" />
+  <Target
+    Name="GetRepositoryProperties_VersionOrRepositoryTypeNotSupported"
+    Condition="('$(RepositoryBranch)' == '') and ('$(RepositoryCommit)' == '')"
+  >
+    <Error
+      Text="Could not get repository properties (type: $(RepositoryType))"
+      File="$(MSBuildProjectFile)"
+      Condition="'$(_IsInsideOfRepositoryTree)' == 'true'"
+    />
+    <Warning
+      Text="Could not get repository properties; project may not be in the repository tree. (type: $(RepositoryType))"
+      File="$(MSBuildProjectFile)"
+      Condition="'$(_IsInsideOfRepositoryTree)' != 'true'"
+    />
   </Target>
 </Project>
